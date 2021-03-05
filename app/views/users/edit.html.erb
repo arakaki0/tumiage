@@ -1,0 +1,26 @@
+<h1>ユーザー編集</h1>
+
+<% @user.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+
+<div class="form">
+
+
+
+  <%= form_for @user do |f| %>
+
+  <%= f.label :username, "名前：" %>
+  <%= f.text_field :username %>
+
+  <%= f.label :email, "メールアドレス：" %>
+  <%= f.email_field :email %>
+
+
+  <%= f.label :image, "画像：" %>
+  <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+
+  <%= f.submit %>
+<% end %>
+
+</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tumiage2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <header class="navbar" >
+
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <a href="/" class="is-size-4 has-text-weight-semibold	">今日の積み上げアプリ</a>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+
+        <% if user_signed_in? %>
+          <div class="navbar-item">
+            <a href="/post/index">投稿一覧</a>
+          </div>
+
+          <div class="navbar-item">
+            <a href="/post/new">新規投稿</a>
+          </div>
+
+          <div class="navbar-item">
+            <a href="/users">ユーザー一覧</a>
+          </div>
+
+          <div class="navbar-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+
+        <% else %>
+
+          <div class="navbar-item">
+            <a href="about">ABOUT</a>
+          </div>
+
+          <div class="navbar-item">
+            <%= link_to "新規登録", new_user_registration_path %>
+          </div>
+
+          <div class="navbar-item">
+            <a href="/users/sign_in">ログイン</a>
+          </div>
+
+        <% end %>
+
+        </div>
+
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>
