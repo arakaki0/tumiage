@@ -25,15 +25,19 @@
 
         <% if user_signed_in? %>
           <div class="navbar-item">
-            <a href="/post/index">投稿一覧</a>
+            <%= link_to "マイページ", user_path(current_user) %>
           </div>
 
           <div class="navbar-item">
-            <a href="/post/new">新規投稿</a>
+            <%= link_to "投稿一覧", posts_path %>
           </div>
 
           <div class="navbar-item">
-            <a href="/users">ユーザー一覧</a>
+            <%= link_to "新規投稿", new_post_path %>
+          </div>
+
+          <div class="navbar-item">
+            <%= link_to "ユーザー一覧", users_path %>
           </div>
 
           <div class="navbar-item">

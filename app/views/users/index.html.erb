@@ -29,6 +29,7 @@
       <div class="card-content">
         <div class="media-content">
           <p class="title is-4"><%= link_to("#{user.username}", user_path(user)) %></p>
+          <p class="title is-4">総積み上げ数：<%= user.posts.count %></p>
         </div>
       </div>
 

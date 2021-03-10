@@ -14,3 +14,9 @@
  *= require_self
  */
 @import "bulma";
+.main-image {
+                height: 940px;
+                background-image: url(back_image.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+             }
