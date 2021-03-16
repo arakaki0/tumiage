@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @user = User.find_by(id: current_user.id)
   end
 
   def edit
@@ -23,8 +24,19 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to post_path(@post),notice: "更新に成功しました。"
+    @user = @post.user
+    if @user.point == nil
+      @user.point = 0
+      @post.save
+      @user.save
+      redirect_to post_path(@post),notice: "積み上げを記録しました。"
+    elsif @user.point >= 3
+      @user.point -= 3
+      @post.save
+      @user.save
+      redirect_to post_path(@post),notice: "積み上げを記録しました。"
+    elsif @user.point < 3
+      redirect_to posts_path,notice: "積み上げを記録するにはあと#{3-@user.point}回他の人をスゴイね！してください。"
     else
       render :new
     end

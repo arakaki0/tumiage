@@ -1,6 +1,9 @@
 class LikesController < ApplicationController
   def create
     @like = current_user.likes.create(post_id: params[:post_id])
+    @user = User.find_by(id: current_user.id)
+    @user.point += 1
+    @user.save
     redirect_back(fallback_location: root_path)
   end
 
