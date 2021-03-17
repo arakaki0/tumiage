@@ -1,24 +1,22 @@
 <div class="post_show_image">
-   <% if @user.image? %>
-        <%= image_tag @user.image.url %>
-     <% else %>
-        <%= image_tag "/user_images/jisin_app_user.png" %>
-     <% end %>
- </div>
- <div class="post_show_image" >
-<%= @post.content %>
-<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-<% if  current_user.already_liked?(@post) %>
-<%= link_to(post_likes_path(@post), method: :delete)do %>
-<i class="fas fa-heart like-herat"></i>
-<% end %>
-<% else %>
-<%= link_to(post_likes_path(@post),method: :post)do %>
-<i class="far fa-heart"></i>
-<% end %>
-<% end%>
-<%= @post.likes.count %>
-<% if @user.id == current_user.id %>
+  <% if @user.image? %>
+  <%= image_tag @user.image.url %>
+  <% else %>
+  <%= image_tag "/user_images/jisin_app_user.png" %>
+  <% end %>
+</div>
+<div class="post_show_image" >
+  <%= @post.content %>
+  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+  <% if  current_user.already_liked?(@post) %>
+  既にスゴイね！済です
+  <% else %>
+  <%= link_to(post_likes_path(@post),method: :post)do %>
+  スゴイね！をする
+  <% end %>
+  <% end%>
+  <% if @user.id == current_user.id %>
   <%= link_to "編集", edit_post_path(@post) %>
   <%= link_to("削除","/posts/#{@post.id}", method: :delete, data: {confirm: "削除しますか？"}) %>
-<% end %>
+  <% end %>
+</div>

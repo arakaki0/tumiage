@@ -31,15 +31,12 @@
           <time datetime="2016-1-1"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></time>
           <br>
           <% if  current_user.already_liked?(post) %>
-          <%= link_to(post_likes_path(post), method: :delete)do %>
-          <i class="fas fa-heart like-herat"></i>
-          <% end %>
+          既にスゴイね！済です
           <% else %>
           <%= link_to(post_likes_path(post),method: :post)do %>
-          <i class="far fa-heart"></i>
+          スゴイね！をする
           <% end %>
           <% end%>
-          <%= post.likes.count %>
         </div>
       </div>
     </div>
