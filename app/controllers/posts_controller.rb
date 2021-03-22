@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.start_time = DateTime.now
     @post.user_id = current_user.id
     @user = @post.user
     if @user.point == nil

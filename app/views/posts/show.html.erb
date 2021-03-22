@@ -1,22 +1,58 @@
-<div class="post_show_image">
-  <% if @user.image? %>
-  <%= image_tag @user.image.url %>
-  <% else %>
-  <%= image_tag "/user_images/jisin_app_user.png" %>
-  <% end %>
-</div>
-<div class="post_show_image" >
-  <%= @post.content %>
-  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-  <% if  current_user.already_liked?(@post) %>
-  既にスゴイね！済です
-  <% else %>
-  <%= link_to(post_likes_path(@post),method: :post)do %>
-  スゴイね！をする
-  <% end %>
-  <% end%>
-  <% if @user.id == current_user.id %>
-  <%= link_to "編集", edit_post_path(@post) %>
-  <%= link_to("削除","/posts/#{@post.id}", method: :delete, data: {confirm: "削除しますか？"}) %>
-  <% end %>
-</div>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        積み上げの内容詳細
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <table class="table is-narrow">
+                <tr>
+                  <td><%= simple_format @post.content %></td>
+                </tr>
+              </table>
+              <small><a>
+                <% if  current_user.already_liked?(@post) %>
+                  既にスゴイね！済です
+                <% else %>
+                <%= link_to(post_likes_path(@post),method: :post)do %>
+                スゴイね！をする
+                <% end %>
+                <% end%>
+              </a>
+              <time datetime="2016-1-1"><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></time></small>
+              <br>
+              <% if @user.id == current_user.id %>
+                <%= link_to "編集画面へ", edit_post_path(@post), class: "button is-primary" %>
+                <%= link_to("削除","/posts/#{@post.id}", method: :delete, class: "button is-primary", data: {confirm: "削除しますか？"}) %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-4">
+        <article class="panel is-link">
+          <p class="panel-heading">
+            By <%= @user.username %>
+          </p>
+          <%= link_to user_path(@user), class: "panel-block" do %>
+            <span class="panel-icon">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </span>
+            <%= @user.username %> さんのページへ
+          <% end %>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

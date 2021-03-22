@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -29,7 +29,7 @@
       <div class="card-content">
         <div class="media-content">
           <p class="title is-4"><%= link_to("#{user.username}", user_path(user)) %></p>
-          <p class="title is-4">総積み上げ数：<%= user.posts.count %></p>
+          <p class=" is-4 is-medium">総積み上げ数：<%= user.posts.count %></p>
         </div>
       </div>
 

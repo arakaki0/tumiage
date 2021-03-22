@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -8,26 +8,35 @@
   </div>
 </section>
 
+<div >
+  <% if @user.point == nil %>
+  はじめての積み上げを記録してみよう！
+  <% elsif @user.point < 3 %>
+  積み上げを記録するにはあと<%= 3-@user.point %>回、他の積み上げをスゴイね！してください。
+  <% end %>
 
-<% if @user.point == nil %>
-はじめての積み上げを記録してみよう！
-<% elsif @user.point < 3 %>
-積み上げを記録するにはあと<%= 3-@user.point %>回他の積み上げをスゴイね！してください。
-<% end %>
-
-<div class="columns is-centered ">
-  <div class="column is-11 ">
-    <% @post.errors.full_messages.each do |message| %>
-    <%= message %>
-    <% end %>
-
-    <%= form_for @post do |f| %>
-
-    <%= f.label :content, "積み上げ内容：" %>
-    <%= f.text_field :content %>
-
-    <%= f.submit %>
-    <% end %>
-  </div>
+  <% @post.errors.full_messages.each do |message| %>
+  <%= message %>
+  <% end %>
 
 </div>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for @post do |f| %>
+
+          <div class="field">
+            <%= f.label :content, "今日の積み上げ内容：", class: "label" %>
+            <%= f.text_area :content, class: "textarea" %>
+          </div>
+
+          <%= f.submit '投稿', class: "button is-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

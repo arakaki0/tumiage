@@ -1,14 +1,39 @@
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        積み上げた内容の編集
+      </h1>
+    </div>
+  </div>
+</section>
+
 <% if @post.errors.any? %>
-<%= pluralize(@post.errors.count, "error") %>pfohibited this object from being saved: not successfully
-<% @post.errors.full_messages.each do |message| %>
-<%= message %>
-<% end %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@post.errors.count, "error") %>pfohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
-<%= form_for @post do |f| %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for @post do |f| %>
 
-  <%= f.label :content, "積み上げ内容：" %>
-  <%= f.text_field :content %>
+          <div class="field">
+            <%= f.label :content, "積み上げた内容", class: "label" %>
+            <%= f.text_area :content, class: "textarea" %>
+          </div>
 
-  <%= f.submit %>
-<% end %>
+          <%= f.submit '投稿', class: "button is-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
