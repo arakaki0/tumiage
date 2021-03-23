@@ -15,7 +15,11 @@
       <article class="box media">
         <figure class="media-left">
           <p class="image is-64x64">
+            <% if post.user.image? %>
             <%= image_tag post.user.image.url %>
+            <% else %>
+            <%= image_tag "/user_images/jisin_app_user.png" %>
+            <% end %>
           </p>
         </figure>
         <div class="media-content">

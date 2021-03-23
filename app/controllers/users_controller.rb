@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @liked = Like.where(liked_user_id: @user.id)
   end
 
   def edit
