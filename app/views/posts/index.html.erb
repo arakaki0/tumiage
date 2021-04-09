@@ -26,16 +26,16 @@
           <div class="content">
             <p><strong><%= link_to(post.user.username, user_path(post.user.id)) %></strong><br>
               <%= link_to(post.content, post_path(post) ) %><br>
-              <small><a>
+              <small><p>
                 <% if  current_user.already_liked?(post) %>
-                  既にスゴイね！済です
+                  既にスゴイね！済です　
                 <% else %>
                 <%= link_to(post_likes_path(post),method: :post)do %>
-                スゴイね！をする
+                スゴイね！をする　
                 <% end %>
                 <% end%>
-              </a>
-              <time datetime="2016-1-1"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></time></small>
+<time datetime="2016-1-1"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></time>
+              </p></small>
             </p>
           </div>
         </div>
