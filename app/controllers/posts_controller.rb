@@ -12,9 +12,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    if @post.user.id != current_user.id
-      redirect_to posts_path, alert: "不正なアクセスです。"
-    end
+    redirect_to posts_path, alert: "不正なアクセスです。" if @post.user.id != current_user.id
   end
 
   def index
@@ -26,18 +24,18 @@ class PostsController < ApplicationController
     @post.start_time = DateTime.now
     @post.user_id = current_user.id
     @user = @post.user
-    if @user.point == nil
+    if @user.point.nil?
       @user.point = 0
       @post.save
       @user.save
-      redirect_to post_path(@post),notice: "積み上げを記録しました。"
+      redirect_to post_path(@post), notice: "積み上げを記録しました。"
     elsif @user.point >= 3
       @user.point -= 3
       @post.save
       @user.save
-      redirect_to post_path(@post),notice: "積み上げを記録しました。"
+      redirect_to post_path(@post), notice: "積み上げを記録しました。"
     elsif @user.point < 3
-      redirect_to posts_path,notice: "積み上げを記録するにはあと#{3-@user.point}回他の人をスゴイね！してください。"
+      redirect_to posts_path, notice: "積み上げを記録するにはあと#{3 - @user.point}回他の人をスゴイね！してください。"
     else
       render :new
     end
@@ -46,7 +44,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post),notice: "更新に成功しました。"
+      redirect_to post_path(@post), notice: "更新に成功しました。"
     else
       render :edit
     end
@@ -59,8 +57,8 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:content)
   end
-
 end

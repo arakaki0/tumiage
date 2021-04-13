@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "User", type: :system do
-  let(:user){ FactoryBot.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   scenario "upload image file" do
     sign_in user
     visit root_path

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :posts do
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: %i[create destroy]
   end
+  get "home/about" => "home#about"
 end

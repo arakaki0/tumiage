@@ -14,14 +14,13 @@ RSpec.describe Post, type: :model do
   end
   # user_idがなければ無効な状態であること
   it "is invalid without a user_id" do
-      post = FactoryBot.build(:post, user_id: nil)
-      post.valid?
-      expect(post.errors[:user_id]).to include("can't be blank")
+    post = FactoryBot.build(:post, user_id: nil)
+    post.valid?
+    expect(post.errors[:user_id]).to include("can't be blank")
   end
   # contentが141字以上なら無効な状態であること
-  it "is invalid with content of 141 characters or more"do
-    post = FactoryBot.build(:post, content: "a"*141)
+  it "is invalid with content of 141 characters or more" do
+    post = FactoryBot.build(:post, content: "a" * 141)
     expect(post).to be_invalid
   end
-  
 end

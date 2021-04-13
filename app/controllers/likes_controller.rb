@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def create
-    @post = Post.find_by(id: params[:post_id]) 
-    @like = current_user.likes.create(post_id: params[:post_id],liked_user_id: @post.user_id)
+    @post = Post.find_by(id: params[:post_id])
+    @like = current_user.likes.create(post_id: params[:post_id], liked_user_id: @post.user_id)
     @user = User.find_by(id: current_user.id)
     @user.point += 1
     @user.save
