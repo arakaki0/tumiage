@@ -28,13 +28,13 @@ Password: kujokujo
 - RSpec
 - Rubocop
 # AWS構成図
-![画像名](https://github.com/arakaki0/tumiage/blob/master/tumiage-app%20aws.drawio)
+![画像名](https://github.com/arakaki0/tumiage/blob/master/tumiage-app%20aws%E6%A7%8B%E6%88%90%E5%9B%B3.svg)
 # 機能一覧
 - ユーザー登録、ログイン機能(devise)
 - 画像投稿機能(carrierwave)
 - カレンダー機能(simple_calendar2.0)
 # ER図
-![画像名](https://github.com/arakaki0/tumiage/blob/master/tumiage-app%20ER.drawio)
+![画像名](https://github.com/arakaki0/tumiage/blob/master/tumiage-app%20ER%E5%9B%B3.svg)
 # テスト
 - RSpec
   - 単体テスト(model)
