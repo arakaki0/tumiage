@@ -4,8 +4,8 @@
 報告に対してお互いにいいね！しあうことでモチベーション維持に活用してもらうことが目的です。<br >
 マイページでは他の人からもらったいいね！の数の確認や、投稿日が反映されたカレンダーを表示させることができます。
 ![画像名](https://github.com/arakaki0/tumiage/blob/master/sample_image1.png)
-![画像名](https://github.com/arakaki0/tumiage/blob/master/sample_image2.png)
 ![画像名](https://github.com/arakaki0/tumiage/blob/master/sample_image3.png)
+![画像名](https://github.com/arakaki0/tumiage/blob/master/sample_image2.png)
 # URL
 https://www.tumiage-app.com
 # テストアカウント
