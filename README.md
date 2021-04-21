@@ -1,4 +1,11 @@
-# README
+# 今日の積み上げアプリ
+# URL
+# テストアカウント
+# 使用技術
+# AWS構成図
+# 機能一覧
+# ER図
+# テスト
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
