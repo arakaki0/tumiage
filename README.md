@@ -9,7 +9,7 @@ Password: kujokujo
 # 使用技術
 - ruby 2.6.6
 - Rails 5.2.4.5
-- MySQL 5.7
+- MySQL 8.0.23
 - Bulma-rails
 - Nginx
 - Puma
