@@ -4,7 +4,7 @@
 https://www.tumiage-app.com
 # テストアカウント
 テスト用のアカウントを用意しています。<br >
-ログインボタンを押してメールとパスワードを入力してください。<br >
+ログインボタンを押してメールとパスワードを入力して利用してください。<br >
 Email: jotaro@mail<br >
 Password: kujokujo
 # 使用技術
