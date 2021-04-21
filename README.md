@@ -9,35 +9,24 @@ Password: kujokujo
 # 使用技術
 - ruby 2.6.6
 - Rails 5.2.4.5
+- MySQL 5.7
+- Bulma-rails
+- Nginx
+- Puma
 - AWS
   - VPC
   - EC2
-  - RDS
+  - ALB
   - Route53
+- RSpec
+- Rubocop
 # AWS構成図
 # 機能一覧
+- ユーザー登録、ログイン機能(devise)
+- 画像投稿機能(carrierwave)
+- カレンダー機能(simple_calendar2.0)
 # ER図
 # テスト
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- RSpec
+  - 単体テスト(model)
+  - 統合テスト(feature)
